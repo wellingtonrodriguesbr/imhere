@@ -20,13 +20,21 @@ export const styles = StyleSheet.create({
     fontSize: 16,
   },
 
+  form: {
+    width: "100%",
+    alignItems: "center",
+    flexDirection: "row",
+    marginTop: 16,
+  },
+
   input: {
     height: 56,
+    flex: 1,
     backgroundColor: "#1f1e25",
     borderRadius: 5,
-    marginTop: 16,
     color: "#fdfcfe",
     padding: 12,
+    marginRight: 6,
   },
 
   button: {
