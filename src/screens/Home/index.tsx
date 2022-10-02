@@ -1,4 +1,5 @@
 import {
+  Alert,
   FlatList,
   Text,
   TextInput,
@@ -10,8 +11,6 @@ import { Participant } from "../../components/Participant";
 import { styles } from "./styles";
 
 export function Home() {
-  function handleParticipantAdd() {}
-  function handleParticipantRemove(name: string) {}
   const participants = [
     "Juan",
     "Arthur",
@@ -25,6 +24,32 @@ export function Home() {
     "João",
     "Wesley",
   ];
+
+  function handleParticipantAdd() {
+    if (participants.includes("Biro")) {
+      return Alert.alert(
+        "Participante existente",
+        "Já existe um participante com este nome!"
+      );
+    }
+  }
+
+  function handleParticipantRemove(name: string) {
+    Alert.alert(
+      "Remover participante",
+      `Deseja remover ${name} da lista de presença?`,
+      [
+        {
+          text: "Sim",
+          onPress: () => Alert.alert("Removido(a)!"),
+        },
+        {
+          text: "Não remover",
+          style: "cancel",
+        },
+      ]
+    );
+  }
 
   return (
     <View style={styles.container}>
