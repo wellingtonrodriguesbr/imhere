@@ -1,11 +1,31 @@
 import { StatusBar } from "expo-status-bar";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { Participant } from "../../components/Participant";
 
 import { styles } from "./styles";
 
 export function Home() {
   function handleParticipantAdd() {}
+  function handleParticipantRemove(name: string) {}
+  const participants = [
+    "Juan",
+    "Arthur",
+    "Rodrigo",
+    "Mayk",
+    "Diego",
+    "Wellington",
+    "Biro",
+    "Pedro",
+    "Augusto",
+    "João",
+    "Wesley",
+  ];
 
   return (
     <View style={styles.container}>
@@ -21,10 +41,15 @@ export function Home() {
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
-
-      <Participant />
-      <Participant />
-      <Participant />
+      <ScrollView>
+        {participants.map((participant) => (
+          <Participant
+            key={participant}
+            name={participant}
+            onRemoveParticipant={handleParticipantRemove}
+          />
+        ))}
+      </ScrollView>
 
       <StatusBar style="light" />
     </View>
