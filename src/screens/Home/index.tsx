@@ -1,7 +1,5 @@
-import { StatusBar } from "expo-status-bar";
 import {
   FlatList,
-  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
@@ -61,8 +59,6 @@ export function Home() {
           />
         )}
       />
-
-      <StatusBar style="light" />
     </View>
   );
 }
