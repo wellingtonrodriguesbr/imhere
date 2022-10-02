@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import {
+  FlatList,
   ScrollView,
   Text,
   TextInput,
@@ -41,15 +42,25 @@ export function Home() {
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {participants.map((participant) => (
+
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        data={participants}
+        ListEmptyComponent={() => (
+          <Text style={styles.TextEmptyList}>
+            Ninguém chegou ao evento ainda? Adicione participantes a sua lista
+            de presença.
+          </Text>
+        )}
+        keyExtractor={(item) => item}
+        renderItem={({ item }) => (
           <Participant
-            key={participant}
-            name={participant}
+            key={item}
+            name={item}
             onRemoveParticipant={handleParticipantRemove}
           />
-        ))}
-      </ScrollView>
+        )}
+      />
 
       <StatusBar style="light" />
     </View>

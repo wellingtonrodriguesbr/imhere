@@ -51,4 +51,11 @@ export const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 24,
   },
+
+  TextEmptyList: {
+    textAlign: "center",
+    color: "#fff",
+    fontSize: 16,
+    marginTop: 16,
+  },
 });
