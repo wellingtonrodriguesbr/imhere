@@ -30,10 +30,6 @@ export function Home() {
   }
 
   function handleParticipantRemove(name: string) {
-    const participantsFiltered = participants.filter(
-      (participant) => participant !== name
-    );
-
     Alert.alert(
       "Remover participante",
       `Deseja remover ${name} da lista de presença?`,
@@ -41,6 +37,9 @@ export function Home() {
         {
           text: "Sim",
           onPress: () => {
+            setParticipants((prevParticipants) =>
+              prevParticipants.filter((participant) => participant !== name)
+            );
             Alert.alert("Removido(a)!");
           },
         },
