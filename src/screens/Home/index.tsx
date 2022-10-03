@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Alert,
   FlatList,
@@ -11,37 +12,37 @@ import { Participant } from "../../components/Participant";
 import { styles } from "./styles";
 
 export function Home() {
-  const participants = [
-    "Juan",
-    "Arthur",
-    "Rodrigo",
-    "Mayk",
-    "Diego",
-    "Wellington",
-    "Biro",
-    "Pedro",
-    "Augusto",
-    "João",
-    "Wesley",
-  ];
+  const [participants, setParticipants] = useState<string[]>([]);
+  const [newParticipant, setNewParticipant] = useState("");
 
   function handleParticipantAdd() {
-    if (participants.includes("Biro")) {
+    if (participants.includes(newParticipant)) {
       return Alert.alert(
         "Participante existente",
         "Já existe um participante com este nome!"
       );
     }
+    setParticipants((prevParticipants) => [
+      ...prevParticipants,
+      newParticipant,
+    ]);
+    setNewParticipant("");
   }
 
   function handleParticipantRemove(name: string) {
+    const participantsFiltered = participants.filter(
+      (participant) => participant !== name
+    );
+
     Alert.alert(
       "Remover participante",
       `Deseja remover ${name} da lista de presença?`,
       [
         {
           text: "Sim",
-          onPress: () => Alert.alert("Removido(a)!"),
+          onPress: () => {
+            Alert.alert("Removido(a)!");
+          },
         },
         {
           text: "Não remover",
@@ -58,6 +59,8 @@ export function Home() {
       <View style={styles.form}>
         <TextInput
           style={styles.input}
+          value={newParticipant}
+          onChangeText={(text) => setNewParticipant(text)}
           placeholder="Nome do participante"
           placeholderTextColor="#6b6b6b"
         />
