@@ -23,7 +23,6 @@ $ git clone https://github.com/wellingtonrodriguesbr/imhere.git
 # Entrar no diretório
 $ cd imhere
 
-
 # Instalar as dependências
 $ npm install
 
