@@ -26,7 +26,7 @@ export function Home() {
     if (!newParticipant.length) {
       return Alert.alert(
         "Campo vazio",
-        "Escreva o nome do participante para adicionar à lista"
+        "Digite o nome do participante para adicionar à lista"
       );
     }
 
