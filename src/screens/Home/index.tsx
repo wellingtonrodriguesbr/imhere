@@ -22,6 +22,14 @@ export function Home() {
         "Já existe um participante com este nome!"
       );
     }
+
+    if (!newParticipant.length) {
+      return Alert.alert(
+        "Campo vazio",
+        "Escreva o nome do participante para adicionar a lista"
+      );
+    }
+
     setParticipants((prevParticipants) => [
       ...prevParticipants,
       newParticipant,
