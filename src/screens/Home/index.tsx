@@ -62,7 +62,7 @@ export function Home() {
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>Ignite Lab #03</Text>
-      <Text style={styles.eventDate}>Segunda, 10 de Outubro de 2022</Text>
+      <Text style={styles.eventDate}>Quinta-feira, 21 de Dezembro de 2023</Text>
       <View style={styles.form}>
         <TextInput
           style={styles.input}
